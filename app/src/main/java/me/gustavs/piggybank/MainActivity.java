@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         setFloatingActionButtonListeners();
 
         setGoalsActionButtonListeners();
+
+        setLoansActionButtonListeners();
     }
 
     @Override
