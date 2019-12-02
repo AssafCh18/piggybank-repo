@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="me.gustavs.piggybank.OperationsActivity">
+
+    <item
+        android:id="@+id/submit"
+        android:icon="@drawable/ic_check"
+        android:title="@string/submit"
+        app:showAsAction="ifRoom" />
+
+</menu>

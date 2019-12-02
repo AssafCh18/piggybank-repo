@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="me.gustavs.piggybank.OperationsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/what_are_you_doing"
+            android:textSize="@dimen/text_label" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/rbDepositing"
+            android:id="@+id/rgAction">
+
+            <RadioButton
+                android:id="@+id/rbDepositing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/depositing"/>
+
+            <RadioButton
+                android:id="@+id/rbWithdrawing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/withdrawing" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_margin"
+            android:text="@string/whats_the_amount"
+            android:textSize="@dimen/text_label" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/amount_hint"
+            android:inputType="numberDecimal"
+            android:id="@+id/etAmount"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_margin"
+            android:text="@string/whats_the_reason"
+            android:textSize="@dimen/text_label" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/reason_hint"
+            android:inputType="text"
+            android:id="@+id/etReason"/>
+
+    </LinearLayout>
+
+</ScrollView>
