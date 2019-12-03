@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab;
     Button goalsbutton;
     Button loansbutton;
+    Button treasurebutton;
     TextView tvAmount;
 
     Settings settings;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         goalsbutton = findViewById(R.id.goalsbutton);
         loansbutton = findViewById(R.id.loansbutton);
+        treasurebutton = findViewById(R.id.treasurebutton);
         tvAmount = findViewById(R.id.tvAmount);
 
         settings = new Settings(getBaseContext());
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         setGoalsActionButtonListeners();
 
         setLoansActionButtonListeners();
+
+        setTreasureActionButtonListeners();
     }
 
     @Override
@@ -125,6 +129,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LoansActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setTreasureActionButtonListeners() {
+        treasurebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TreasureActivity.class);
                 startActivity(intent);
             }
         });
