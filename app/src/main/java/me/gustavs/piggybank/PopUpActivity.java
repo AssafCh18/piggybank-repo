@@ -1,10 +1,10 @@
 package me.gustavs.piggybank;
 
-import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-import android.util.DisplayMetrics;
 
 import java.util.Date;
 import java.util.Locale;
@@ -22,7 +21,7 @@ import me.gustavs.piggybank.database.App;
 import me.gustavs.piggybank.entities.Operation;
 import me.gustavs.piggybank.entities.OperationDao;
 
-public class LoansActivity extends AppCompatActivity {
+public class PopUpActivity extends AppCompatActivity {
 
     // UI elements
     RadioGroup rgAction;
@@ -35,7 +34,7 @@ public class LoansActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.loans);
+        setContentView(R.layout.popup);
 
         // Assign UI elements to variables
         rgAction = findViewById(R.id.rgAction);
@@ -60,9 +59,6 @@ public class LoansActivity extends AppCompatActivity {
         sendloan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
                 setContentView(R.layout.popup);
 
                 DisplayMetrics dm = new DisplayMetrics();
