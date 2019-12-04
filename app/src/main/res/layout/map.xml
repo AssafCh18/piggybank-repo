@@ -14,47 +14,59 @@
 
         <Button
             android:id="@+id/missionsbutton"
-            android:layout_width="117dp"
-            android:layout_height="56dp"
+            android:layout_width="120dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="124dp"
+            android:layout_marginLeft="124dp"
+            android:layout_marginTop="148dp"
             android:background="@android:color/transparent"
             android:text="Missions"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="327dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loansbutton" />
 
         <Button
             android:id="@+id/goalsbutton"
-            android:layout_width="95dp"
-            android:layout_height="57dp"
+            android:layout_width="83dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="68dp"
             android:background="@android:color/transparent"
             android:text="Goals"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="293dp"
-            tools:layout_editor_absoluteY="109dp" />
+            app:layout_constraintStart_toEndOf="@+id/loansbutton"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/treasurebutton"
             android:layout_width="187dp"
             android:layout_height="41dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="100dp"
             android:background="@android:color/transparent"
             android:text="Treasure"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="113dp"
-            tools:layout_editor_absoluteY="516dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/missionsbutton" />
 
         <Button
             android:id="@+id/loansbutton"
-            android:layout_width="127dp"
+            android:layout_width="112dp"
             android:layout_height="60dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="28dp"
             android:background="@android:color/transparent"
             android:text="Ask for loan"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="99dp"
-            tools:layout_editor_absoluteY="60dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

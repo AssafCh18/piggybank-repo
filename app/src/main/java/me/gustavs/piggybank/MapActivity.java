@@ -1,12 +1,15 @@
 package me.gustavs.piggybank;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -25,11 +28,21 @@ public class MapActivity extends AppCompatActivity {
     EditText etAmount, etReason;
     Settings settings;
     int aSubmit;
+    Button goalsbutton;
+    Button loansbutton;
+    Button treasurebutton;
+    Button missionsbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map);
+
+
+        goalsbutton = findViewById(R.id.goalsbutton);
+        missionsbutton = findViewById(R.id.missionsbutton);
+        loansbutton = findViewById(R.id.loansbutton);
+        treasurebutton = findViewById(R.id.treasurebutton);
 
         // Assign UI elements to variables
         rgAction = findViewById(R.id.rgAction);
@@ -42,6 +55,17 @@ public class MapActivity extends AppCompatActivity {
 
         // Hide keyboard when opening activity
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+        // Set listeners
+        //setFloatingActionButtonListeners();
+
+        setGoalsActionButtonListeners();
+
+        setLoansActionButtonListeners();
+
+        setTreasureActionButtonListeners();
+
+        setMissionsActionButtonListeners();
     }
 
     @Override
@@ -113,6 +137,46 @@ public class MapActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setGoalsActionButtonListeners() {
+        goalsbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapActivity.this, GoalsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setLoansActionButtonListeners() {
+        loansbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapActivity.this, LoansActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setTreasureActionButtonListeners() {
+        treasurebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapActivity.this, TreasureActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setMissionsActionButtonListeners() {
+        missionsbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapActivity.this, MapActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
