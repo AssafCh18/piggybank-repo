@@ -12,6 +12,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.ImageView;
+import android.support.constraint.ConstraintLayout;
 import android.widget.Toast;
 import android.util.DisplayMetrics;
 
@@ -30,7 +33,16 @@ public class LoansActivity extends AppCompatActivity {
     Settings settings;
     int aSubmit;
 
+    TextView loandetails;
+    TextView loanamount;
+    TextView loanreasondesc;
+    TextView whatiamwillingtodo;
+    EditText editText1;
+    EditText editText2;
+    ImageView emptychest;
+    ImageView coinsloans;
     Button sendloan;
+    ConstraintLayout waitinglayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +54,19 @@ public class LoansActivity extends AppCompatActivity {
         amountfescrip = findViewById(R.id.amountfescrip);
         loanreasondescription = findViewById(R.id.loanreasondescription);
 
+        loandetails = findViewById(R.id.loandetails);
+        loanamount = findViewById(R.id.loanamount);
+        amountfescrip = findViewById(R.id.amountfescrip);
+        loanreasondesc = findViewById(R.id.loanreasondesc);
+        loanreasondescription = findViewById(R.id.loanreasondescription);
+        whatiamwillingtodo = findViewById(R.id.whatiamwillingtodo);
+        editText1 = findViewById(R.id.editText1);
+        editText2 = findViewById(R.id.editText2);
+        emptychest = findViewById(R.id.emptychest);
+        coinsloans = findViewById(R.id.coinsloans);
         sendloan = findViewById(R.id.sendloan);
+        waitinglayout = findViewById(R.id.waitinglayout);
+
 
         aSubmit = R.id.submit;
 
@@ -132,6 +156,21 @@ public class LoansActivity extends AppCompatActivity {
         sendloan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                loandetails.setVisibility(View.INVISIBLE);
+                loanamount.setVisibility(View.INVISIBLE);
+                amountfescrip.setVisibility(View.INVISIBLE);
+                loanreasondesc.setVisibility(View.INVISIBLE);
+                loanreasondescription.setVisibility(View.INVISIBLE);
+                whatiamwillingtodo.setVisibility(View.INVISIBLE);
+                editText1.setVisibility(View.INVISIBLE);
+                editText2.setVisibility(View.INVISIBLE);
+                emptychest.setVisibility(View.INVISIBLE);
+                coinsloans.setVisibility(View.INVISIBLE);
+                sendloan.setVisibility(View.INVISIBLE);
+
+                waitinglayout.setVisibility(View.VISIBLE);
 
                 String reason = loanreasondescription.getText().toString();
 
