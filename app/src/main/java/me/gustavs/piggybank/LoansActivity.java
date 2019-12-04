@@ -84,20 +84,20 @@ public class LoansActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_operations, menu);
-
-        // Set icon color
-        Drawable drawable = menu.findItem(aSubmit).getIcon();
-        drawable.setColorFilter(
-                getResources().getColor(R.color.colorText),
-                PorterDuff.Mode.SRC_ATOP
-        );
-
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_operations, menu);
+//
+//        // Set icon color
+//        Drawable drawable = menu.findItem(aSubmit).getIcon();
+//        drawable.setColorFilter(
+//                getResources().getColor(R.color.colorText),
+//                PorterDuff.Mode.SRC_ATOP
+//        );
+//
+//        return true;
+//    }
 
     // Handle action button clicks
     private void setLoansActionButtonListeners() {
