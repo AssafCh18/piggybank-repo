@@ -2,16 +2,12 @@ package me.gustavs.piggybank;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -41,7 +37,7 @@ public class HistoryAdapter extends ArrayAdapter<Operation> {
 
         TextView description = view.findViewById(R.id.description);
         TextView date = view.findViewById(R.id.date);
-        TextView amount = view.findViewById(R.id.amount);
+        TextView amount = view.findViewById(R.id.tvamount);
 
         description.setText(operation.getDescription());
 

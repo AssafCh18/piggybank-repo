@@ -1,10 +1,10 @@
 package me.gustavs.piggybank;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.util.DisplayMetrics;
 
 import java.util.Date;
 import java.util.Locale;
@@ -24,11 +25,12 @@ import me.gustavs.piggybank.entities.OperationDao;
 public class LoansActivity extends AppCompatActivity {
 
     // UI elements
-//    RadioGroup rgAction;
-    EditText amountfescrip, loanreasondescription;
+    RadioGroup rgAction;
+    EditText etAmount, etReason;
     Settings settings;
-    Button sendloan;
     int aSubmit;
+
+    Button sendloan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,20 +38,44 @@ public class LoansActivity extends AppCompatActivity {
         setContentView(R.layout.loans);
 
         // Assign UI elements to variables
-//        rgAction = findViewById(R.id.rgAction);
-        amountfescrip = findViewById(R.id.amountfescrip);
-        loanreasondescription = findViewById(R.id.loanreasondescription);
+        rgAction = findViewById(R.id.rgAction);
+        etAmount = findViewById(R.id.etAmount);
+        etReason = findViewById(R.id.etReason);
 
-        aSubmit = R.id.sendloan;
         sendloan = findViewById(R.id.sendloan);
+
+        aSubmit = R.id.submit;
 
         settings = new Settings(getBaseContext());
 
-
-
         // Hide keyboard when opening activity
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
         setLoansActionButtonListeners();
+
+
+    }
+
+    private void setLoansActionButtonListeners() {
+        sendloan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                setContentView(R.layout.popup);
+
+                DisplayMetrics dm = new DisplayMetrics();
+                getWindowManager().getDefaultDisplay().getMetrics(dm);
+                int Width=dm.widthPixels;
+                int height = dm.heightPixels;
+
+                getWindow().setLayout((int)(Width*.8),(int)(height*.5));
+
+                //Intent intent = new Intent(LoansActivity.this, LoansActivity.class);
+                //startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -57,12 +83,12 @@ public class LoansActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_operations, menu);
 
-//        // Set icon color
-//        Drawable drawable = menu.findItem(aSubmit).getIcon();
-//        drawable.setColorFilter(
-//                getResources().getColor(R.color.colorText),
-//                PorterDuff.Mode.SRC_ATOP
-//        );
+        // Set icon color
+        Drawable drawable = menu.findItem(aSubmit).getIcon();
+        drawable.setColorFilter(
+                getResources().getColor(R.color.colorText),
+                PorterDuff.Mode.SRC_ATOP
+        );
 
         return true;
     }
@@ -74,10 +100,10 @@ public class LoansActivity extends AppCompatActivity {
 
         if (menu == aSubmit) {
 
-            String reason = loanreasondescription.getText().toString();
+            String reason = etReason.getText().toString();
 
             // Check the empty fields
-            if (amountfescrip.getText().toString().trim().length() == 0 || reason.trim().length() == 0) {
+            if (etAmount.getText().toString().trim().length() == 0 || reason.trim().length() == 0) {
                 Toast.makeText(this, R.string.fill_all, Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -88,7 +114,7 @@ public class LoansActivity extends AppCompatActivity {
                     String.format(
                             Locale.US,
                             "%.2f",
-                            Float.parseFloat(amountfescrip.getText().toString()))
+                            Float.parseFloat(etAmount.getText().toString()))
             );
             // Check whether the amount is not 0F
             if (amount == 0f) {
@@ -96,10 +122,10 @@ public class LoansActivity extends AppCompatActivity {
                 return true;
             }
 
-//            // If money is being withdrawn, make the amount negative
-//            if (rgAction.getCheckedRadioButtonId() == R.id.rbWithdrawing) {
-//                amount = -amount;
-//            }
+            // If money is being withdrawn, make the amount negative
+            if (rgAction.getCheckedRadioButtonId() == R.id.rbWithdrawing) {
+                amount = -amount;
+            }
 
             // Create new Operation instance
             Operation operation = new Operation();
@@ -121,71 +147,6 @@ public class LoansActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void setLoansActionButtonListeners() {
-        sendloan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String reason = loanreasondescription.getText().toString();
-
-//                // Check the empty fields
-//                if (amountfescrip.getText().toString().trim().length() == 0 || reason.trim().length() == 0) {
-//                    Toast.makeText(this, R.string.fill_all, Toast.LENGTH_SHORT).show();
-//                }
-//
-                // Format the amount with 2 decimal places
-                // @TODO: Find a better approach
-                float amount = Float.parseFloat(
-                        String.format(
-                                Locale.US,
-                                "%.2f",
-                                Float.parseFloat(amountfescrip.getText().toString()))
-                );
-//                // Check whether the amount is not 0F
-//                if (amount == 0f) {
-//                    Toast.makeText(this, R.string.please_specify_amount, Toast.LENGTH_SHORT).show();
-//                }
-
-//            // If money is being withdrawn, make the amount negative
-//            if (rgAction.getCheckedRadioButtonId() == R.id.rbWithdrawing) {
-//                amount = -amount;
-//            }
-
-                // Create new Operation instance
-                Operation operation = new Operation();
-                operation.setAmount(amount);
-                operation.setDescription(reason);
-                operation.setCreatedAt(new Date().getTime());
-
-                // Save the new operation to database
-                OperationDao dao = ((App)getApplication()).getDaoSession().getOperationDao();
-                dao.insert(operation);
-
-                // Calculate the new balance
-                float balance = settings.getFloat("balance", 0f);
-                settings.setFloat("balance", balance + amount);
-
-                // Exit the activity
-                finish();
-            }
-
-
-
-                //setContentView(R.layout.popup);
-
-//         DisplayMetrics dm = new DisplayMetrics();
-//         getWindowManager().getDefaultDisplay().getMetrics(dm);
-//         int Width=dm.widthPixels;
-//         int height = dm.heightPixels;
-//
-//          getWindow().setLayout((int)(Width*.8),(int)(height*.5));
-
-                //Intent intent = new Intent(LoansActivity.this, LoansActivity.class);
-                //startActivity(intent);
-//            }
-        });
     }
 
 }
