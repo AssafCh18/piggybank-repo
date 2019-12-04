@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Assign UI elements to variables
-        toolbar = findViewById(R.id.toolbar);
+        //toolbar = findViewById(R.id.toolbar);
         //fab = findViewById(R.id.fab);
         //goalsbutton = findViewById(R.id.goalsbutton);
         mapbutton = findViewById(R.id.mapbutton);
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         //aHistory = R.id.history;
 
         // Initialize action bar
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 
         // Set listeners
         //setFloatingActionButtonListeners();
