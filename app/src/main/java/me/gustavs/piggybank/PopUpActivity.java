@@ -30,6 +30,7 @@ public class PopUpActivity extends AppCompatActivity {
     int aSubmit;
 
     Button sendloan;
+    Button okbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class PopUpActivity extends AppCompatActivity {
         etReason = findViewById(R.id.etReason);
 
         sendloan = findViewById(R.id.sendloan);
+        okbutton = findViewById(R.id.okbutton);
 
         aSubmit = R.id.submit;
 
@@ -72,6 +74,7 @@ public class PopUpActivity extends AppCompatActivity {
                 //startActivity(intent);
             }
         });
+
     }
 
     @Override

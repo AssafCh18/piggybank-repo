@@ -112,7 +112,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvamount" />
 
                 <ImageView
-                    android:id="@+id/mainpicture"
+                    android:id="@+id/coinsloans"
                     android:layout_width="381dp"
                     android:layout_height="271dp"
                     android:layout_marginStart="14dp"

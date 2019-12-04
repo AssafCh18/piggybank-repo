@@ -1,9 +1,10 @@
 package me.gustavs.piggybank;
 
-import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-import android.util.DisplayMetrics;
+import android.widget.TextView;
+import android.widget.ImageView;
 
 import java.util.Date;
 import java.util.Locale;
@@ -25,12 +27,25 @@ import me.gustavs.piggybank.entities.OperationDao;
 public class LoansActivity extends AppCompatActivity {
 
     // UI elements
+    TextView loandetails;
+    TextView loanamount;
+    EditText amountfescrip;
+    TextView loanreasondesc;
+    TextView loanreasondescription;
+    TextView whatiamwillingtodo;
+    EditText editText1;
+    EditText editText2;
+    ImageView emptychest;
+    ImageView coinsloans;
+    Button sendloan;
+
     RadioGroup rgAction;
     EditText etAmount, etReason;
     Settings settings;
     int aSubmit;
 
-    Button sendloan;
+    ConstraintLayout waitinglayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +57,18 @@ public class LoansActivity extends AppCompatActivity {
         etAmount = findViewById(R.id.etAmount);
         etReason = findViewById(R.id.etReason);
 
+        loandetails = findViewById(R.id.loandetails);
+        loanamount = findViewById(R.id.loanamount);
+        amountfescrip = findViewById(R.id.amountfescrip);
+        loanreasondesc = findViewById(R.id.loanreasondesc);
+        loanreasondescription = findViewById(R.id.loanreasondescription);
+        whatiamwillingtodo = findViewById(R.id.whatiamwillingtodo);
+        editText1 = findViewById(R.id.editText1);
+        editText2 = findViewById(R.id.editText2);
+        emptychest = findViewById(R.id.emptychest);
+        coinsloans = findViewById(R.id.coinsloans);
         sendloan = findViewById(R.id.sendloan);
+        waitinglayout = findViewById(R.id.waitinglayout);
 
         aSubmit = R.id.submit;
 
@@ -54,6 +80,7 @@ public class LoansActivity extends AppCompatActivity {
         setLoansActionButtonListeners();
 
 
+
     }
 
     private void setLoansActionButtonListeners() {
@@ -61,21 +88,34 @@ public class LoansActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                loandetails.setVisibility(View.INVISIBLE);
+                loanamount.setVisibility(View.INVISIBLE);
+                amountfescrip.setVisibility(View.INVISIBLE);
+                loanreasondesc.setVisibility(View.INVISIBLE);
+                loanreasondescription.setVisibility(View.INVISIBLE);
+                whatiamwillingtodo.setVisibility(View.INVISIBLE);
+                editText1.setVisibility(View.INVISIBLE);
+                editText2.setVisibility(View.INVISIBLE);
+                emptychest.setVisibility(View.INVISIBLE);
+                coinsloans.setVisibility(View.INVISIBLE);
+                sendloan.setVisibility(View.INVISIBLE);
 
+                waitinglayout.setVisibility(View.VISIBLE);
 
-                setContentView(R.layout.popup);
-
-                DisplayMetrics dm = new DisplayMetrics();
-                getWindowManager().getDefaultDisplay().getMetrics(dm);
-                int Width=dm.widthPixels;
-                int height = dm.heightPixels;
-
-                getWindow().setLayout((int)(Width*.8),(int)(height*.5));
+//                setContentView(R.layout.popup);
+//
+//                DisplayMetrics dm = new DisplayMetrics();
+//                getWindowManager().getDefaultDisplay().getMetrics(dm);
+//                int Width=dm.widthPixels;
+//                int height = dm.heightPixels;
+//
+//                getWindow().setLayout((int)(Width*.8),(int)(height*.5));
 
                 //Intent intent = new Intent(LoansActivity.this, LoansActivity.class);
                 //startActivity(intent);
             }
         });
+
     }
 
     @Override

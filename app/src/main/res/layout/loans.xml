@@ -23,15 +23,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loandetails" />
 
-        <EditText
+        <TextView
             android:id="@+id/loandetails"
-            android:layout_width="126dp"
-            android:layout_height="55dp"
+            android:layout_width="186dp"
+            android:layout_height="38dp"
             android:layout_marginStart="52dp"
             android:layout_marginLeft="52dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Loan Details : "
+            android:text="Coin request"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,7 +81,7 @@
             app:layout_constraintTop_toBottomOf="@+id/loanreasondescription" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/editText1"
             android:layout_width="291dp"
             android:layout_height="35dp"
             android:layout_marginStart="52dp"
@@ -92,7 +93,7 @@
             app:layout_constraintTop_toBottomOf="@+id/whatiamwillingtodo" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/editText2"
             android:layout_width="291dp"
             android:layout_height="35dp"
             android:layout_marginStart="52dp"
@@ -105,7 +106,7 @@
             app:layout_constraintTop_toBottomOf="@+id/whatiamwillingtodo" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/emptychest"
             android:layout_width="164dp"
             android:layout_height="164dp"
             android:layout_marginStart="53dp"
@@ -115,7 +116,7 @@
             android:layout_marginRight="26dp"
             app:layout_constraintEnd_toStartOf="@+id/sendloan"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText6"
+            app:layout_constraintTop_toBottomOf="@+id/editText1"
             app:srcCompat="@drawable/emptychest2" />
 
         <Button
@@ -127,17 +128,70 @@
             android:layout_marginTop="44dp"
             android:background="@color/colorPrimary"
             android:text="Send"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/editText6" />
+            android:visibility="visible"
+            app:layout_constraintStart_toEndOf="@+id/emptychest"
+            app:layout_constraintTop_toBottomOf="@+id/editText1" />
 
         <ImageView
-            android:id="@+id/mainpicture"
+            android:id="@+id/coinsloans"
             android:layout_width="70dp"
             android:layout_height="111dp"
-            android:layout_marginTop="44dp"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/editText6"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintStart_toEndOf="@+id/emptychest"
+            app:layout_constraintTop_toBottomOf="@+id/editText2"
             app:srcCompat="@drawable/coinsloans" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/waitinglayout"
+            android:layout_width="378dp"
+            android:layout_height="366dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginBottom="233dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/waitingresponsetxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="78dp"
+                android:layout_marginRight="78dp"
+                android:layout_marginBottom="9dp"
+                android:text="Waiting for response"
+                android:textSize="24sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/bottle"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/coinrequestext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginBottom="16dp"
+                android:text="Coin request sent to parent.. "
+                android:textSize="24sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/waitingresponsetxt"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/bottle"
+                android:layout_width="201dp"
+                android:layout_height="118dp"
+                android:layout_marginEnd="88dp"
+                android:layout_marginRight="88dp"
+                android:layout_marginBottom="27dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/waiting" />
+
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
