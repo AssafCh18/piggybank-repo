@@ -1,5 +1,6 @@
 package me.gustavs.piggybank;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -30,36 +31,15 @@ public class PopUpActivity extends AppCompatActivity {
     int aSubmit;
 
     Button sendloan;
+    Button popupButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup);
 
-        // Assign UI elements to variables
-        rgAction = findViewById(R.id.rgAction);
-        etAmount = findViewById(R.id.etAmount);
-        etReason = findViewById(R.id.etReason);
-
-        sendloan = findViewById(R.id.sendloan);
-
-        aSubmit = R.id.submit;
-
-        settings = new Settings(getBaseContext());
-
-        // Hide keyboard when opening activity
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-
-        setLoansActionButtonListeners();
-
-
-    }
-
-    private void setLoansActionButtonListeners() {
-        sendloan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setContentView(R.layout.popup);
+        setContentView(R.layout.popup);
 
                 DisplayMetrics dm = new DisplayMetrics();
                 getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -68,10 +48,31 @@ public class PopUpActivity extends AppCompatActivity {
 
                 getWindow().setLayout((int)(Width*.8),(int)(height*.5));
 
-                //Intent intent = new Intent(LoansActivity.this, LoansActivity.class);
-                //startActivity(intent);
-            }
-        });
+        // Assign UI elements to variables
+        rgAction = findViewById(R.id.rgAction);
+        etAmount = findViewById(R.id.etAmount);
+        etReason = findViewById(R.id.etReason);
+
+        sendloan = findViewById(R.id.sendloan);
+        popupButton = (Button) findViewById(R.id.popupButton);
+
+        popupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }});
+
+
+        aSubmit = R.id.submit;
+
+        settings = new Settings(getBaseContext());
+
+        // Hide keyboard when opening activity
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+        popupActionButtonListeners();
+
+
     }
 
     @Override
@@ -90,59 +91,23 @@ public class PopUpActivity extends AppCompatActivity {
     }
 
     // Handle action button clicks
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int menu = item.getItemId(); // Get selected item
+    private void popupActionButtonListeners() {
+        popupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);}
 
-        if (menu == aSubmit) {
+//
+//                                            Button popupButton = (Button) findViewById(R.id.popupButton);
+//
+//                                            popupButton.setOnClickListener(new View.OnClickListener())
+//                                            @Override
+//                                            public void onClick (View v){
+//                                                startActivity(new Intent(LoansActivity.this, PopUpActivity.class));
+        });
 
-            String reason = etReason.getText().toString();
 
-            // Check the empty fields
-            if (etAmount.getText().toString().trim().length() == 0 || reason.trim().length() == 0) {
-                Toast.makeText(this, R.string.fill_all, Toast.LENGTH_SHORT).show();
-                return true;
-            }
 
-            // Format the amount with 2 decimal places
-            // @TODO: Find a better approach
-            float amount = Float.parseFloat(
-                    String.format(
-                            Locale.US,
-                            "%.2f",
-                            Float.parseFloat(etAmount.getText().toString()))
-            );
-            // Check whether the amount is not 0F
-            if (amount == 0f) {
-                Toast.makeText(this, R.string.please_specify_amount, Toast.LENGTH_SHORT).show();
-                return true;
-            }
-
-            // If money is being withdrawn, make the amount negative
-            if (rgAction.getCheckedRadioButtonId() == R.id.rbWithdrawing) {
-                amount = -amount;
-            }
-
-            // Create new Operation instance
-            Operation operation = new Operation();
-            operation.setAmount(amount);
-            operation.setDescription(reason);
-            operation.setCreatedAt(new Date().getTime());
-
-            // Save the new operation to database
-            OperationDao dao = ((App)getApplication()).getDaoSession().getOperationDao();
-            dao.insert(operation);
-
-            // Calculate the new balance
-            float balance = settings.getFloat("balance", 0f);
-            settings.setFloat("balance", balance + amount);
-
-            // Exit the activity
-            finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
-
 }
