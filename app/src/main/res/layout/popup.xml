@@ -9,26 +9,81 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorText">
 
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            tools:layout_editor_absoluteX="103dp"
-            tools:layout_editor_absoluteY="203dp" />
+        <TextView
+            android:id="@+id/amounttransfered"
+            android:layout_width="112dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="149dp"
+            android:layout_marginLeft="149dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="150dp"
+            android:layout_marginRight="150dp"
+            android:text="Amount: 20$"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/thecoinsarearrived" />
+
+        <TextView
+            android:id="@+id/thecoinsarearrived"
+            android:layout_width="180dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="103dp"
+            android:layout_marginLeft="103dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:text="The coins here!!"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yohoyoho" />
 
         <Button
             android:id="@+id/popupButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="162dp"
+            android:layout_marginLeft="162dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="162dp"
+            android:layout_marginRight="162dp"
+            android:background="@color/colorPrimary"
             android:text="Got it!"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/amounttransfered" />
+
+        <ImageView
+            android:id="@+id/fallincoins"
+            android:layout_width="314dp"
+            android:layout_height="316dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="49dp"
+            android:layout_marginRight="49dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/fallincoins" />
+
+        <TextView
+            android:id="@+id/yohoyoho"
+            android:layout_width="122dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="82dp"
+            android:layout_marginLeft="82dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="83dp"
+            android:layout_marginRight="83dp"
+            android:text="YO-HO!"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fallincoins" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
