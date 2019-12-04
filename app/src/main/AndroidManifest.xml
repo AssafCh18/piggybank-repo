@@ -30,7 +30,7 @@
         </activity>
         <activity
             android:name=".GoalsActivity"
-            android:label="Goals"
+            android:label=""
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,7 +38,7 @@
         </activity>
         <activity
             android:name=".LoansActivity"
-            android:label="Coins"
+            android:label=""
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -46,7 +46,7 @@
         </activity>
         <activity
             android:name=".TreasureActivity"
-            android:label="Treasure"
+            android:label=""
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -54,7 +54,7 @@
         </activity>
         <activity
             android:name=".MissionsActivity"
-            android:label="Missions"
+            android:label=""
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -62,7 +62,7 @@
         </activity>
         <activity
             android:name=".MapActivity"
-            android:label="My Map"
+            android:label=""
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
