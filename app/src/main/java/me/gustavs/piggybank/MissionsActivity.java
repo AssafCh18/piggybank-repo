@@ -1,10 +1,7 @@
 package me.gustavs.piggybank;
 
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -14,11 +11,13 @@ import android.widget.Toast;
 import java.util.Date;
 import java.util.Locale;
 
+import me.gustavs.piggybank.R;
+import me.gustavs.piggybank.Settings;
 import me.gustavs.piggybank.database.App;
 import me.gustavs.piggybank.entities.Operation;
 import me.gustavs.piggybank.entities.OperationDao;
 
-public class GoalsActivity extends AppCompatActivity {
+public class MissionsActivity extends AppCompatActivity {
 
     // UI elements
     RadioGroup rgAction;
@@ -29,7 +28,7 @@ public class GoalsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.goals);
+        setContentView(R.layout.missions);
 
         // Assign UI elements to variables
         rgAction = findViewById(R.id.rgAction);
