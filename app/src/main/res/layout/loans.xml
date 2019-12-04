@@ -20,19 +20,21 @@
             android:layout_marginLeft="52dp"
             android:layout_marginTop="56dp"
             android:text="Reason : "
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loandetails" />
 
         <TextView
             android:id="@+id/loandetails"
-            android:layout_width="186dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
+            android:layout_width="212dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginLeft="92dp"
+            android:layout_marginTop="92dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Coin request"
-            android:textSize="24sp"
+            android:textSize="36sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,17 +46,22 @@
             android:layout_marginLeft="52dp"
             android:layout_marginTop="14dp"
             android:text="Amount : "
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loandetails" />
 
         <EditText
             android:id="@+id/amountfescrip"
-            android:layout_width="89dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="213dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/colorAccent"
             android:ems="10"
             android:inputType="number"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintStart_toEndOf="@+id/loanamount"
             app:layout_constraintTop_toBottomOf="@+id/loandetails" />
 
@@ -64,6 +71,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorAccent"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintStart_toEndOf="@+id/loanreasondesc"
@@ -77,28 +86,17 @@
             android:layout_marginLeft="52dp"
             android:layout_marginTop="21dp"
             android:text="What I am Willing To Do : "
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loanreasondescription" />
 
         <EditText
             android:id="@+id/editText1"
-            android:layout_width="291dp"
-            android:layout_height="35dp"
+            android:layout_width="286dp"
+            android:layout_height="65dp"
             android:layout_marginStart="52dp"
             android:layout_marginLeft="52dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/whatiamwillingtodo" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="291dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
-            android:layout_marginTop="32dp"
+            android:background="@color/colorAccent"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
@@ -109,47 +107,40 @@
             android:id="@+id/emptychest"
             android:layout_width="164dp"
             android:layout_height="164dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginLeft="53dp"
-            android:layout_marginTop="52dp"
-            android:layout_marginEnd="26dp"
-            android:layout_marginRight="26dp"
             app:layout_constraintEnd_toStartOf="@+id/sendloan"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText1"
             app:srcCompat="@drawable/emptychest2" />
-
-        <Button
-            android:id="@+id/sendloan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
-            android:layout_marginLeft="76dp"
-            android:layout_marginTop="44dp"
-            android:background="@color/colorPrimary"
-            android:text="Send"
-            android:visibility="visible"
-            app:layout_constraintStart_toEndOf="@+id/emptychest"
-            app:layout_constraintTop_toBottomOf="@+id/editText1" />
 
         <ImageView
             android:id="@+id/coinsloans"
             android:layout_width="70dp"
             android:layout_height="111dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="60dp"
-            app:layout_constraintStart_toEndOf="@+id/emptychest"
-            app:layout_constraintTop_toBottomOf="@+id/editText2"
+            android:layout_marginEnd="168dp"
+            android:layout_marginRight="168dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/coinsloans" />
+
+        <Button
+            android:id="@+id/sendloan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="154dp"
+            android:layout_marginLeft="154dp"
+            android:layout_marginTop="17dp"
+            android:background="@color/colorPrimary"
+            android:text="Send"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText1" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/waitinglayout"
             android:layout_width="378dp"
             android:layout_height="366dp"
-            android:layout_marginEnd="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginBottom="233dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="211dp"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent">

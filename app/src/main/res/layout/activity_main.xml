@@ -25,7 +25,8 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="wrap_content"
-                android:layout_height="29dp"></android.support.v7.widget.Toolbar>
+                android:layout_height="29dp"
+                android:background="@color/colorPrimary"></android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 

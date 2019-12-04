@@ -64,7 +64,7 @@ public class LoansActivity extends AppCompatActivity {
         loanreasondesc = findViewById(R.id.loanreasondesc);
         whatiamwillingtodo = findViewById(R.id.whatiamwillingtodo);
         editText1 = findViewById(R.id.editText1);
-        editText2 = findViewById(R.id.editText2);
+        //editText2 = findViewById(R.id.editText2);
         emptychest = findViewById(R.id.emptychest);
         coinsloans = findViewById(R.id.coinsloans);
         waitinglayout = findViewById(R.id.waitinglayout);
@@ -143,7 +143,7 @@ public class LoansActivity extends AppCompatActivity {
                 loanreasondescription.setVisibility(View.INVISIBLE);
                 whatiamwillingtodo.setVisibility(View.INVISIBLE);
                 editText1.setVisibility(View.INVISIBLE);
-                editText2.setVisibility(View.INVISIBLE);
+                //editText2.setVisibility(View.INVISIBLE);
                 emptychest.setVisibility(View.INVISIBLE);
                 coinsloans.setVisibility(View.INVISIBLE);
                 sendloan.setVisibility(View.INVISIBLE);

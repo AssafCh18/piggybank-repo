@@ -27,18 +27,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <CheckBox
+        <TextView
             android:id="@+id/newgame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="44dp"
             android:layout_marginEnd="52dp"
             android:layout_marginRight="52dp"
             android:text="New game"
+            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/addcoinstogoals2"
-            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintHorizontal_bias="0.173"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/newphone" />
 
@@ -65,7 +66,7 @@
             android:layout_marginEnd="28dp"
             android:layout_marginRight="28dp"
             android:layout_marginBottom="314dp"
-            android:text="58$ left"
+            android:text="58 of 100"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -75,14 +76,15 @@
             android:layout_width="104dp"
             android:layout_height="39dp"
             android:layout_marginTop="28dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginRight="6dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
             android:layout_marginBottom="162dp"
             android:background="@color/colorPrimary"
             android:text="add coins"
             app:layout_constraintBottom_toTopOf="@+id/addcoinstogoals"
             app:layout_constraintEnd_toStartOf="@+id/cashout2"
-            app:layout_constraintTop_toBottomOf="@+id/addcoinstogoals1" />
+            app:layout_constraintTop_toBottomOf="@+id/addcoinstogoals1"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/cashout1"
@@ -127,16 +129,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-        <CheckBox
+        <TextView
             android:id="@+id/newphone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="27dp"
             android:layout_marginLeft="27dp"
-            android:layout_marginTop="294dp"
+            android:layout_marginTop="300dp"
             android:layout_marginEnd="36dp"
             android:layout_marginRight="36dp"
             android:text="New phone"
+            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/addcoinstogoals1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -165,7 +168,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginEnd="28dp"
             android:layout_marginRight="28dp"
-            android:text="15$ left"
+            android:text="15 of 100"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cashout1" />
