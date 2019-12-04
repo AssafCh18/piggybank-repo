@@ -26,7 +26,7 @@ public class LoansActivity extends AppCompatActivity {
 
     // UI elements
     RadioGroup rgAction;
-    EditText etAmount, etReason;
+    EditText amountfescrip, loanreasondescription;
     Settings settings;
     int aSubmit;
 
@@ -39,8 +39,8 @@ public class LoansActivity extends AppCompatActivity {
 
         // Assign UI elements to variables
         rgAction = findViewById(R.id.rgAction);
-        etAmount = findViewById(R.id.etAmount);
-        etReason = findViewById(R.id.etReason);
+        amountfescrip = findViewById(R.id.amountfescrip);
+        loanreasondescription = findViewById(R.id.loanreasondescription);
 
         sendloan = findViewById(R.id.sendloan);
 
@@ -56,27 +56,6 @@ public class LoansActivity extends AppCompatActivity {
 
     }
 
-    private void setLoansActionButtonListeners() {
-        sendloan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-
-                setContentView(R.layout.popup);
-
-                DisplayMetrics dm = new DisplayMetrics();
-                getWindowManager().getDefaultDisplay().getMetrics(dm);
-                int Width=dm.widthPixels;
-                int height = dm.heightPixels;
-
-                getWindow().setLayout((int)(Width*.8),(int)(height*.5));
-
-                //Intent intent = new Intent(LoansActivity.this, LoansActivity.class);
-                //startActivity(intent);
-            }
-        });
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,59 +73,126 @@ public class LoansActivity extends AppCompatActivity {
     }
 
     // Handle action button clicks
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int menu = item.getItemId(); // Get selected item
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int menu = item.getItemId(); // Get selected item
+//
+//        if (menu == aSubmit) {
+//
+//            String reason = etReason.getText().toString();
+//
+//            // Check the empty fields
+//            if (etAmount.getText().toString().trim().length() == 0 || reason.trim().length() == 0) {
+//                Toast.makeText(this, R.string.fill_all, Toast.LENGTH_SHORT).show();
+//                return true;
+//            }
+//
+//            // Format the amount with 2 decimal places
+//            // @TODO: Find a better approach
+//            float amount = Float.parseFloat(
+//                    String.format(
+//                            Locale.US,
+//                            "%.2f",
+//                            Float.parseFloat(etAmount.getText().toString()))
+//            );
+//            // Check whether the amount is not 0F
+//            if (amount == 0f) {
+//                Toast.makeText(this, R.string.please_specify_amount, Toast.LENGTH_SHORT).show();
+//                return true;
+//            }
+//
+//            // If money is being withdrawn, make the amount negative
+//            if (rgAction.getCheckedRadioButtonId() == R.id.rbWithdrawing) {
+//                amount = -amount;
+//            }
+//
+//            // Create new Operation instance
+//            Operation operation = new Operation();
+//            operation.setAmount(amount);
+//            operation.setDescription(reason);
+//            operation.setCreatedAt(new Date().getTime());
+//
+//            // Save the new operation to database
+//            OperationDao dao = ((App)getApplication()).getDaoSession().getOperationDao();
+//            dao.insert(operation);
+//
+//            // Calculate the new balance
+//            float balance = settings.getFloat("balance", 0f);
+//            settings.setFloat("balance", balance + amount);
+//
+//            // Exit the activity
+//            finish();
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
-        if (menu == aSubmit) {
+    private void setLoansActionButtonListeners() {
+        sendloan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-            String reason = etReason.getText().toString();
+                String reason = loanreasondescription.getText().toString();
 
-            // Check the empty fields
-            if (etAmount.getText().toString().trim().length() == 0 || reason.trim().length() == 0) {
-                Toast.makeText(this, R.string.fill_all, Toast.LENGTH_SHORT).show();
-                return true;
+//                // Check the empty fields
+//                if (amountfescrip.getText().toString().trim().length() == 0 || reason.trim().length() == 0) {
+//                    Toast.makeText(this, R.string.fill_all, Toast.LENGTH_SHORT).show();
+//                }
+//
+                // Format the amount with 2 decimal places
+                // @TODO: Find a better approach
+                float amount = Float.parseFloat(
+                        String.format(
+                                Locale.US,
+                                "%.2f",
+                                Float.parseFloat(amountfescrip.getText().toString()))
+                );
+//                // Check whether the amount is not 0F
+//                if (amount == 0f) {
+//                    Toast.makeText(this, R.string.please_specify_amount, Toast.LENGTH_SHORT).show();
+//                }
+
+//            // If money is being withdrawn, make the amount negative
+//            if (rgAction.getCheckedRadioButtonId() == R.id.rbWithdrawing) {
+//                amount = -amount;
+//            }
+
+                // Create new Operation instance
+                Operation operation = new Operation();
+                operation.setAmount(amount);
+                operation.setDescription(reason);
+                operation.setCreatedAt(new Date().getTime());
+
+                // Save the new operation to database
+                OperationDao dao = ((App)getApplication()).getDaoSession().getOperationDao();
+                dao.insert(operation);
+
+                // Calculate the new balance
+                float balance = settings.getFloat("balance", 0f);
+                settings.setFloat("balance", balance + amount);
+
+                // Exit the activity
+                finish();
+                Intent intent = new Intent(LoansActivity.this, MainActivity.class);
+                startActivity(intent);
             }
 
-            // Format the amount with 2 decimal places
-            // @TODO: Find a better approach
-            float amount = Float.parseFloat(
-                    String.format(
-                            Locale.US,
-                            "%.2f",
-                            Float.parseFloat(etAmount.getText().toString()))
-            );
-            // Check whether the amount is not 0F
-            if (amount == 0f) {
-                Toast.makeText(this, R.string.please_specify_amount, Toast.LENGTH_SHORT).show();
-                return true;
-            }
 
-            // If money is being withdrawn, make the amount negative
-            if (rgAction.getCheckedRadioButtonId() == R.id.rbWithdrawing) {
-                amount = -amount;
-            }
 
-            // Create new Operation instance
-            Operation operation = new Operation();
-            operation.setAmount(amount);
-            operation.setDescription(reason);
-            operation.setCreatedAt(new Date().getTime());
+            //setContentView(R.layout.popup);
 
-            // Save the new operation to database
-            OperationDao dao = ((App)getApplication()).getDaoSession().getOperationDao();
-            dao.insert(operation);
+//         DisplayMetrics dm = new DisplayMetrics();
+//         getWindowManager().getDefaultDisplay().getMetrics(dm);
+//         int Width=dm.widthPixels;
+//         int height = dm.heightPixels;
+//
+//          getWindow().setLayout((int)(Width*.8),(int)(height*.5));
 
-            // Calculate the new balance
-            float balance = settings.getFloat("balance", 0f);
-            settings.setFloat("balance", balance + amount);
-
-            // Exit the activity
-            finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+            //Intent intent = new Intent(LoansActivity.this, LoansActivity.class);
+            //startActivity(intent);
+//            }
+        });
     }
 
 }
