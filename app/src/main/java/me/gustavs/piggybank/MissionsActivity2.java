@@ -1,10 +1,7 @@
 package me.gustavs.piggybank;
 
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -18,7 +15,7 @@ import me.gustavs.piggybank.database.App;
 import me.gustavs.piggybank.entities.Operation;
 import me.gustavs.piggybank.entities.OperationDao;
 
-public class TreasureActivity extends AppCompatActivity {
+public class MissionsActivity2 extends AppCompatActivity {
 
     // UI elements
     RadioGroup rgAction;
@@ -29,7 +26,7 @@ public class TreasureActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.treasure);
+        setContentView(R.layout.missions2);
 
         // Assign UI elements to variables
         rgAction = findViewById(R.id.rgAction);
@@ -39,9 +36,6 @@ public class TreasureActivity extends AppCompatActivity {
         aSubmit = R.id.submit;
 
         settings = new Settings(getBaseContext());
-
-        float balance = settings.getFloat("balance", 0f);
-        settings.setFloat("balance", 0.00f);
 
         // Hide keyboard when opening activity
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);

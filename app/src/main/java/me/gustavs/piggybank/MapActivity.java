@@ -32,6 +32,7 @@ public class MapActivity extends AppCompatActivity {
     Button loansbutton;
     Button treasurebutton;
     Button missionsbutton;
+    Button secondmissionsbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MapActivity extends AppCompatActivity {
 
         goalsbutton = findViewById(R.id.goalsbutton);
         missionsbutton = findViewById(R.id.missionsbutton);
+        secondmissionsbutton = findViewById(R.id.secondmissionsbutton);
         loansbutton = findViewById(R.id.loansbutton);
         treasurebutton = findViewById(R.id.treasurebutton);
 
@@ -66,6 +68,8 @@ public class MapActivity extends AppCompatActivity {
         setTreasureActionButtonListeners();
 
         setMissionsActionButtonListeners();
+
+        setSecondMissionsActionButtonListeners();
     }
 
 //    @Override
@@ -174,6 +178,16 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MapActivity.this, MissionsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setSecondMissionsActionButtonListeners() {
+        secondmissionsbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapActivity.this, MissionsActivity2.class);
                 startActivity(intent);
             }
         });

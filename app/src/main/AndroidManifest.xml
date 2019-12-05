@@ -30,39 +30,47 @@
         </activity>
         <activity
             android:name=".GoalsActivity"
-            android:label="My Treasure"
-            android:parentActivityName=".MainActivity">
+            android:label="MyTreasure"
+            android:parentActivityName=".MapActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".LoansActivity"
-            android:label="My Treasure"
-            android:parentActivityName=".MainActivity">
+            android:label="MyTreasure"
+            android:parentActivityName=".MapActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".TreasureActivity"
-            android:label="My Treasure"
-            android:parentActivityName=".MainActivity">
+            android:label="MyTreasure"
+            android:parentActivityName=".MapActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MissionsActivity"
-            android:label="My Treasure"
-            android:parentActivityName=".MainActivity">
+            android:label="MyTreasure"
+            android:parentActivityName=".MapActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".MissionsActivity2"
+            android:label="MyTreasure"
+            android:parentActivityName=".MapActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MapActivity"
-            android:label="My Treasure"
+            android:label="MyTreasure"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

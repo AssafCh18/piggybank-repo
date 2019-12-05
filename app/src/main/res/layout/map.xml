@@ -12,12 +12,27 @@
         android:layout_height="wrap_content"
         android:background="@drawable/mapbackground">
 
+        <Button
+            android:id="@+id/missionsbutton2"
+            android:layout_width="120dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="156dp"
+            android:layout_marginLeft="156dp"
+            android:layout_marginTop="84dp"
+            android:background="@android:color/transparent"
+            android:text="X"
+            android:textColor="@color/colorNegative"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loansbutton" />
+
         <TextView
             android:id="@+id/missionstxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="157dp"
-            android:layout_marginRight="157dp"
+            android:layout_marginEnd="148dp"
+            android:layout_marginRight="148dp"
             android:text="Missions"
             android:textColor="@color/colorDark"
             android:textSize="24sp"
@@ -29,8 +44,8 @@
             android:id="@+id/treasuretxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="176dp"
-            android:layout_marginRight="176dp"
+            android:layout_marginEnd="188dp"
+            android:layout_marginRight="188dp"
             android:text="Treasure"
             android:textColor="@color/colorDark"
             android:textSize="24sp"
@@ -51,6 +66,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <Button
             android:id="@+id/missionsbutton"
@@ -116,14 +132,27 @@
             android:id="@+id/goalstxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
-            android:text="Goals"
+            android:layout_marginEnd="52dp"
+            android:layout_marginRight="52dp"
+            android:text="Dreams"
             android:textColor="@color/colorDark"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goalsbutton" />
+
+        <Button
+            android:id="@+id/secondmissionsbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="148dp"
+            android:layout_marginRight="148dp"
+            android:layout_marginBottom="28dp"
+            android:background="#05FFFFFF"
+            android:text="."
+            app:layout_constraintBottom_toTopOf="@+id/treasurebutton"
+            app:layout_constraintEnd_toEndOf="parent" />
+
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
